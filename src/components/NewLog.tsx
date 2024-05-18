@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -12,8 +13,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { GrAdd } from "react-icons/gr";
 import { DatePicker } from "./DatePicker";
+import { useLogStore } from "@/store";
 
 export function NewLog() {
+  const log = useLogStore((state) => state.log);
+  const setLog = useLogStore((state) => state.setLog);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
